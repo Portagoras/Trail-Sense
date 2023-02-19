@@ -216,6 +216,8 @@
     <string name="calibrate_compass_on_navigate_dialog_content">Rotate your phone in a figure 8 pattern or in all directions several times, click %s when finished.
 \n
 \nThis alert can be disabled in the app settings.</string>
+    <string name="custom_background">Background</string>
+    <string name="custom_background_summary">Set a custom compass background</string>
     <string name="compass_reported_accuracy">Reported accuracy: %s</string>
     <string name="compass_accuracy_improved">Compass accuracy improved to %s</string>
     <!--Settings - Sensors - GPS-->
@@ -348,6 +350,8 @@
     <string name="pref_latitude_override" translatable="false">pref_latitude_override</string>
     <string name="pref_longitude_override" translatable="false">pref_longitude_override</string>
     <string name="pref_calibrate_compass_btn" translatable="false">pref_calibrate_compass_btn</string>
+    <string name="pref_compass_background_btn" translatable="false">pref_compass_background_btn</string>
+    <string name="pref_compass_background" translatable="false">pref_compass_background</string>
     <string name="pref_app_version" translatable="false">pref_app_version</string>
     <string name="pref_category_licenses" translatable="false">pref_category_licenses</string>
     <string name="pref_show_calibrate_on_navigate_dialog" translatable="false">pref_show_calibrate_on_navigate_dialog</string>

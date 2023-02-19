@@ -19,6 +19,13 @@
             app:key="@string/pref_calibrate_compass_btn"
             app:singleLineTitle="false" />
 
+        <Preference
+            android:title="@string/custom_background"
+            android:summary="@string/custom_background_summary"
+            app:iconSpaceReserved="false"
+            app:key="@string/pref_compass_background_btn"
+            app:singleLineTitle="false" />
+
         <SwitchPreferenceCompat
             android:summary="@string/pref_use_legacy_compass_summary"
             app:defaultValue="false"

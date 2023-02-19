@@ -229,6 +229,10 @@ class UserPreferences(private val context: Context) : IDeclinationPreferences {
             cache.putDuration(getString(R.string.pref_backtrack_frequency), value)
         }
 
+    var compassBackgroundColor: Int
+        get() = cache.getInt(context.getString(R.string.pref_compass_background)) ?: 0
+        set(value) = cache.putInt(context.getString(R.string.pref_compass_background), value)
+
     var isLowPowerModeOn: Boolean
         get() = cache.getBoolean(context.getString(R.string.pref_low_power_mode)) ?: false
         set(value) = cache.putBoolean(context.getString(R.string.pref_low_power_mode), value)

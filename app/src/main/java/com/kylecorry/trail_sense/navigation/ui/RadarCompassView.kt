@@ -39,7 +39,7 @@ class RadarCompassView : BaseCompassView, IMapView {
     private var primaryColor: Int = Color.WHITE
 
     @ColorInt
-    private var secondaryColor: Int = Color.WHITE
+    private var backgroundColor: Int = Color.BLACK
 
     @ColorInt
     private var textColor: Int = Color.WHITE
@@ -283,7 +283,7 @@ class RadarCompassView : BaseCompassView, IMapView {
         distanceSize = sp(10f)
         cardinalSize = sp(12f)
         primaryColor = Resources.color(context, R.color.orange_40)
-        secondaryColor = Resources.color(context, R.color.colorSecondary)
+        backgroundColor = prefs.compassBackgroundColor
         textColor = Resources.androidTextColorSecondary(context)
         maxDistanceMeters = Distance.meters(prefs.navigation.maxBeaconDistance)
         maxDistanceBaseUnits = maxDistanceMeters.convertTo(prefs.baseDistanceUnits)
@@ -293,7 +293,7 @@ class RadarCompassView : BaseCompassView, IMapView {
         west = context.getString(R.string.direction_west)
         centerPixel = PixelCoordinate(width / 2f, height / 2f)
         locationStrokeWeight = dp(0.5f)
-        dial = CompassDial(centerPixel, compassSize / 2f, secondaryColor, Color.WHITE, primaryColor)
+        dial = CompassDial(centerPixel, compassSize / 2f, backgroundColor, Color.WHITE, primaryColor)
     }
 
     override fun draw() {

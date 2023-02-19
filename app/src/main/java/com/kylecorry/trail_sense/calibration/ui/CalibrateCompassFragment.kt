@@ -19,6 +19,7 @@ import com.kylecorry.trail_sense.shared.FormatService
 import com.kylecorry.trail_sense.shared.UserPreferences
 import com.kylecorry.trail_sense.shared.declination.DeclinationFactory
 import com.kylecorry.trail_sense.shared.sensors.SensorService
+import com.kylecorry.trail_sense.shared.views.ColorPickerView
 
 
 class CalibrateCompassFragment : AndromedaPreferenceFragment() {
@@ -37,6 +38,7 @@ class CalibrateCompassFragment : AndromedaPreferenceFragment() {
     private lateinit var declinationOverrideEdit: EditTextPreference
     private lateinit var declinationFromGpsBtn: Preference
     private lateinit var calibrateBtn: Preference
+    private lateinit var backgroundColor : Preference
 
     private lateinit var compass: ICompass
     private lateinit var gps: IGPS
@@ -67,6 +69,7 @@ class CalibrateCompassFragment : AndromedaPreferenceFragment() {
         declinationFromGpsBtn =
             findPreference(getString(R.string.pref_declination_override_gps_btn))!!
         calibrateBtn = findPreference(getString(R.string.pref_calibrate_compass_btn))!!
+        backgroundColor = findPreference(getString(R.string.pref_compass_background_btn))!!
 
         declinationOverrideEdit.summary =
             getString(R.string.degree_format, prefs.declinationOverride)
@@ -111,6 +114,24 @@ class CalibrateCompassFragment : AndromedaPreferenceFragment() {
                     requireContext(),
                     height = Resources.dp(requireContext(), 200f).toInt()
                 ),
+                cancelText = null,
+                cancelOnOutsideTouch = false
+            )
+            true
+        }
+
+        backgroundColor.setOnPreferenceClickListener {
+            var colorPickerView: ColorPickerView = ColorPickerView(requireContext(), null)
+            colorPickerView.setOnColorChangeListener { color ->
+                if (color != null) {
+                    prefs.compassBackgroundColor = color.color
+                }else
+                    prefs.compassBackgroundColor = Resources.color(requireContext(), R.color.compassBackground)
+            }
+            Alerts.dialog(
+                requireContext(),
+                "","",
+                contentView = colorPickerView,
                 cancelText = null,
                 cancelOnOutsideTouch = false
             )
